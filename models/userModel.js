@@ -2,52 +2,60 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
   PhoneNumber: {
-    type: Number,
+    type: String,
     required: true,
   },
   Date: {
-    type: Date,
+    type: String,
     required: true,
-    default: Date.now,
   },
   IsInject: {
-    type: Boolean,
+    type: String,
   },
   InjectionDate: {
-    type: Date,
+    type: String,
   },
   InjectionDosge: {
-    type: Number,
+    type: String,
   },
   IsSideEffects: {
-    type: Boolean,
+    type: String,
   },
   NauseaLevel: {
-    type: Number,
+    type: String,
   },
   VomitingLevel: {
-    type: Number,
+    type: String,
   },
   DiarrheaLevel: {
-    type: Number,
+    type: String,
   },
   ConstipationLevel: {
-    type: Number,
+    type: String,
   },
   BurpLevel: {
-    type: Number,
+    type: String,
   },
   FollowedTipsLevel: {
-    type: Number,
+    type: String,
   },
   IsStillSideEffects: {
-    type: Boolean,
+    type: String,
   },
   StillSideEffectsLevel: {
-    type: Number,
+    type: String,
   },
   IsDietitian: {
-    type: Boolean,
+    type: String,
+  },
+  SurveyName: {
+    type: String,
+  },
+  InjectionWay: {
+    type: String,
+  },
+  EatingGuidelines: {
+    type: String,
   },
 });
 

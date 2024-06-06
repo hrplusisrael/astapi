@@ -6,7 +6,6 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   const {
     PhoneNumber,
-    Date,
     IsInject,
     InjectionDate,
     InjectionDosge,
@@ -20,6 +19,9 @@ router.post("/", async (req, res) => {
     IsStillSideEffects,
     StillSideEffectsLevel,
     IsDietitian,
+    EatingGuidelines,
+    InjectionWay,
+    SurveyName,
   } = req.body;
   const user = new userModel({
     PhoneNumber,
@@ -36,6 +38,10 @@ router.post("/", async (req, res) => {
     IsStillSideEffects,
     StillSideEffectsLevel,
     IsDietitian,
+    Date: new Date().toISOString(),
+    EatingGuidelines,
+    InjectionWay,
+    SurveyName,
   });
   try {
     const newUser = await user.save();
