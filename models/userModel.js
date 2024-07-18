@@ -57,6 +57,9 @@ const userSchema = mongoose.Schema({
   EatingGuidelines: {
     type: String,
   },
+  InjectionDosge1: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
