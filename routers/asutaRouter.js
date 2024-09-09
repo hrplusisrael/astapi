@@ -23,6 +23,7 @@ router.post("/", async (req, res) => {
     InjectionWay,
     SurveyName,
     InjectionDosge1,
+    InjectionType,
   } = req.body;
   const user = new userModel({
     PhoneNumber,
@@ -44,6 +45,7 @@ router.post("/", async (req, res) => {
     InjectionWay,
     SurveyName,
     InjectionDosge1,
+    InjectionType,
   });
   try {
     const newUser = await user.save();

@@ -60,6 +60,9 @@ const userSchema = mongoose.Schema({
   InjectionDosge1: {
     type: String,
   },
+  InjectionType: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
