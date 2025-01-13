@@ -24,6 +24,9 @@ router.post("/", async (req, res) => {
     SurveyName,
     InjectionDosge1,
     InjectionType,
+    DrugType,
+    InjectionTiming,
+    SideEffectOther,
   } = req.body;
   const user = new userModel({
     PhoneNumber,
@@ -46,6 +49,9 @@ router.post("/", async (req, res) => {
     SurveyName,
     InjectionDosge1,
     InjectionType,
+    DrugType,
+    InjectionTiming,
+    SideEffectOther,
   });
   try {
     const newUser = await user.save();

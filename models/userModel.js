@@ -63,6 +63,15 @@ const userSchema = mongoose.Schema({
   InjectionType: {
     type: String,
   },
+  DrugType: {
+    type: String,
+  },
+  InjectionTiming: {
+    type: String,
+  },
+  SideEffectOther: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
