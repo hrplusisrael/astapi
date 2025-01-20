@@ -6,7 +6,7 @@ const sgMail = require("@sendgrid/mail");
 require("dotenv").config();
 
 const router = express.Router();
-// Set your SendGrid API key
+
 sgMail.setApiKey(process.env.SendGridKey);
 
 router.post("/", async (req, res) => {
@@ -115,13 +115,13 @@ router.get("/generate_report", async (req, res) => {
 
     // Step 4: Prepare email with SendGrid
     const email = {
-      to: "yohai@hrplus.co.il", // Replace with recipient email
-      from: "no-reply@hrpluscloud.com", // Replace with your verified sender email
+      to: "yohai@hrplus.co.il",
+      from: "no-reply@hrpluscloud.com",
       subject: "Daily User Report",
       text: "Attached is the daily user report.",
       attachments: [
         {
-          content: fs.readFileSync(filePath).toString("base64"), // Convert file to Base64
+          content: fs.readFileSync(filePath).toString("base64"),
           filename: "users_report.csv",
           type: "text/csv",
           disposition: "attachment",
@@ -131,7 +131,7 @@ router.get("/generate_report", async (req, res) => {
 
     // Step 5: Send email
     await sgMail.send(email);
-    fs.unlinkSync(filePath); // Clean up the file after sending
+    fs.unlinkSync(filePath);
 
     res
       .status(200)
