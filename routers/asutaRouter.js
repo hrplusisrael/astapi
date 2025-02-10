@@ -114,8 +114,22 @@ router.get("/generate_report", async (req, res) => {
     fs.writeFileSync(filePath, csv, "utf8");
 
     // Step 4: Prepare email with SendGrid
-    const email = {
+    const email1 = {
       to: "yohai@hrplus.co.il",
+      from: "no-reply@hrpluscloud.com",
+      subject: "Daily User Report",
+      text: "Attached is the daily user report.",
+      attachments: [
+        {
+          content: fs.readFileSync(filePath).toString("base64"),
+          filename: "users_report.csv",
+          type: "text/csv",
+          disposition: "attachment",
+        },
+      ],
+    };
+    const email2 = {
+      to: "rotem2310@gmail.com",
       from: "no-reply@hrpluscloud.com",
       subject: "Daily User Report",
       text: "Attached is the daily user report.",
@@ -130,7 +144,8 @@ router.get("/generate_report", async (req, res) => {
     };
 
     // Step 5: Send email
-    await sgMail.send(email);
+    await sgMail.send(email1);
+    await sgMail.send(email2);
     fs.unlinkSync(filePath);
 
     res
